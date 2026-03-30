@@ -1,15 +1,23 @@
 const WA_NUMBER = import.meta.env.VITE_WA_NUMBER || '9503711954';
 
-export function buildOrderMessage({ player, edition, size, price }) {
-  return encodeURIComponent(
-    `Hi Hunk Wardrobe! 👋\n\n` +
+export function buildOrderMessage({ player, edition, size, price, customer }) {
+  let msg = `Hi Hunk Wardrobe! 👋\n\n` +
     `I'd like to order:\n` +
     `🏀 *${player}* Jersey\n` +
     `✨ Edition: ${edition}\n` +
     `📏 Size: ${size}\n` +
-    `💰 Price: ₹${price.toLocaleString('en-IN')}\n\n` +
-    `Please confirm availability and delivery details. Thank you!`
-  );
+    `💰 Price: ₹${price.toLocaleString('en-IN')}\n\n`;
+
+  if (customer) {
+    msg += `🚚 *SHIPPING DETAILS*\n` +
+           `👤 Name: ${customer.name}\n` +
+           `📞 Phone: ${customer.phone}\n` +
+           `✉️ Email: ${customer.email || 'N/A'}\n` +
+           `🏠 Address: ${customer.houseNo}, ${customer.landmark ? customer.landmark + ', ' : ''}${customer.city}, ${customer.state} - ${customer.pincode}\n\n`;
+  }
+
+  msg += `Please confirm availability and delivery details. Thank you!`;
+  return encodeURIComponent(msg);
 }
 
 export function buildQuickOrderMessage({ player, edition }) {

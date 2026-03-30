@@ -479,8 +479,7 @@ export default function Home() {
             className="hide-scrollbar"
             style={{
               display: 'flex',
-              overflowX: 'auto',
-              scrollSnapType: 'x mandatory',
+              overflowX: 'auto',        
               gap: 16,
               margin: '0 -24px',
               padding: '0 24px 40px',
@@ -492,6 +491,7 @@ export default function Home() {
                 style={{
                   minWidth: 260,
                   flexShrink: 0,
+                  
                   scrollSnapAlign: 'start',
                 }}
               >
