@@ -1,4 +1,4 @@
-const WA_NUMBER = import.meta.env.VITE_WA_NUMBER || '9503711954';
+const WA_NUMBER = import.meta.env.VITE_WA_NUMBER || '9319494399';
 
 export function buildOrderMessage({ player, edition, size, price, customer }) {
   let msg = `Hi Hunk Wardrobe! 👋\n\n` +
